@@ -20,7 +20,7 @@ function checkIsWin() {
   for (const comb of winCombinations) {
     const [a, b, c] = comb;
     if (
-      cells[a].textContent &&
+      cells[a].textContent === currentPlayer &&
       cells[a].textContent === cells[b].textContent &&
       cells[b].textContent === cells[c].textContent
     ) {
@@ -87,10 +87,12 @@ board.addEventListener("click", function (event) {
       return;
     }
 
-    if (currentPlayer === "X") {
-      currentPlayer = "O";
-    } else {
-      currentPlayer = "X";
-    }
+    // if (currentPlayer === "X") {
+    //   currentPlayer = "O";
+    // } else {
+    //   currentPlayer = "X";
+    // }
+
+    currentPlayer === "X" ? (currentPlayer = "O") : (currentPlayer = "X");
   }
 });
